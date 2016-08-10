@@ -970,10 +970,10 @@ Never use `::` for regular method invocation.
     end
     ```
 
-* Don't use the return value of `=` (an assignment) in conditional
-  expressions unless the assignment is wrapped in parentheses. This is
-  a fairly popular idiom among Rubyists that's sometimes referred to as
-  *safe assignment in condition*.
+* There is a fairly popular idiom among Rubyists that's sometimes
+  referred to as *safe assignment in condition*, which is
+  assigning a value to a variable in a conditional.
+  Please don't do that.
 
     ```Ruby
     # bad (+ a warning)
@@ -982,7 +982,7 @@ Never use `::` for regular method invocation.
       ...
     end
 
-    # good (MRI would still complain, but RuboCop won't)
+    # bad
     if (v = array.grep(/foo/))
       do_something(v)
       ...

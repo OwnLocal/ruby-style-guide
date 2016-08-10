@@ -117,13 +117,17 @@ See also: [Ruby on Rails 3 Style Guide](https://github.com/bbatsov/rails-style-g
 
 * Favor `unless` over `if !` and `until` over `while !`
 * Never use `unless` with `else`. Rewrite these with the positive case first.
-* Only use parentheses around a condition when assigning a variable inside the conditional expression:
+* Never use parentheses around a condition when assigning a variable inside the conditional expression:
 
     ```Ruby
-    if x > 10
-      puts "big number!"
-    end
+    #bad
     if (b = Business.find(id))
+      # b...
+    end
+
+    #good
+    b = Business.find(id)
+    if b
       # b...
     end
     ```
